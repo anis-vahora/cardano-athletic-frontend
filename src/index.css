@@ -8,6 +8,7 @@ body {
   scrollbar-color: #3c4854 #27313b;
   scrollbar-width: thin;
 }
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,900");
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
