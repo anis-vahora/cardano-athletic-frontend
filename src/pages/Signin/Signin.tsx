@@ -9,7 +9,7 @@ import Link from '@mui/material/Link';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import CssBaseline from '@mui/material/CssBaseline';
-import CircularProgress from '@mui/material/CircularProgress';
+// import CircularProgress from '@mui/material/CircularProgress';
 import Paper from '@mui/material/Paper';
 import { Link as RouteLink, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/input/use-input';
@@ -17,6 +17,7 @@ import { validateEmail } from '../../shared/utils/validation/email';
 import { validatePasswordLength } from '../../shared/utils/validation/length';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux/hooks';
 import { login, reset } from '../../redux/features/auth/authSlice';
+import CustomizedProgressBars from '../../components/CircularProgress/CircularProgress';
 
 export interface LoginUser {
   email: string;
@@ -102,7 +103,7 @@ const SignIn: React.FC = () => {
   };
 
   if (isLoading)
-    return <CircularProgress sx={{ marginTop: '64px' }} color='primary' />;
+    return <CustomizedProgressBars  />;
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="md">
@@ -155,7 +156,9 @@ const SignIn: React.FC = () => {
                   <Grid item xs={12}>
                     <FormControlLabel
                       control={<Checkbox value="remember" color="primary" />}
-                      label="Remember me"
+                      label={<Link>
+                        Remember me
+                      </Link>}
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -173,7 +176,7 @@ const SignIn: React.FC = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Link href="#" variant="body2">
+                    <Link href="/404" variant="body2">
                       Forgot password?
                     </Link>
                   </Grid>

@@ -10,10 +10,11 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import CssBaseline from '@mui/material/CssBaseline';
 import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
-import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import CustomizedProgressBars from '../../components/CircularProgress/CircularProgress';
 import { Link as RouteLink, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/input/use-input';
+import useCheckbox from '../../hooks/checkbox/use-checkbox';
 import { validateEmail } from '../../shared/utils/validation/email';
 import { validatePasswordLength } from '../../shared/utils/validation/length';
 import { validateNameLength } from '../../shared/utils/validation/length';
@@ -102,6 +103,12 @@ const SignUp: React.FC = () => {
     clearHandler: passwordClearHandler,
   } = useInput(validatePasswordLength);
 
+  const {
+    checked,
+    shouldDisplayError,
+    checkboxChangeHandler,
+    clearHandler,
+  } = useCheckbox((value) => value === true);
   // const {
   //   text: confirmPassword,
   //   shouldDisplayError: confirmPasswordHasError,
@@ -118,8 +125,10 @@ const SignUp: React.FC = () => {
     countryClearHandler();
     dobClearHandler();
     passwordClearHandler();
+    clearHandler();
     // confirmPasswordClearHandler();
   };
+
 
   const dispatch = useAppDispatch();
 
@@ -147,7 +156,8 @@ const SignUp: React.FC = () => {
       countryHasError ||
       dobHasError ||
       emailHasError ||
-      passwordHasError
+      passwordHasError ||
+      shouldDisplayError
       // confirmPasswordHasError
     )
       return;
@@ -159,7 +169,8 @@ const SignUp: React.FC = () => {
       fatherName.length === 0 ||
       dob.length === 0 ||
       email.length === 0 ||
-      password.length === 0
+      password.length === 0 ||
+      !checked
       // confirmPassword.length === 0
     )
       return;
@@ -178,7 +189,7 @@ const SignUp: React.FC = () => {
   };
 
   if (isLoading)
-    return <CircularProgress sx={{ marginTop: '64px' }} color='primary' />;
+    return <CustomizedProgressBars />;
 
   return (
     <ThemeProvider theme={theme}>
@@ -315,14 +326,14 @@ const SignUp: React.FC = () => {
                       label='Date of Birth'
                       name='dateOfBirth'
                       type='date'
-                      
+
                     />
                   </Grid>
                   <Grid item xs={12}>
                     <FormControlLabel
-                      control={<Checkbox value='agree' color='primary' />}
-                      label='I agree to the terms and conditions'
-                    />
+                      control={<Checkbox value='agree' color='primary' checked={checked} onChange={checkboxChangeHandler} required />}
+                      label={<Link>I agree to the terms and conditions</Link>
+                      } />
                   </Grid>
                   <Grid item xs={12}>
                     <Button
