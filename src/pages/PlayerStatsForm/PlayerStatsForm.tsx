@@ -28,8 +28,7 @@ interface Player {
   position: string;
   pace: string;
   shooting: string;
-  passing: string;
-  dribbling: string;
+  passing: string;  
   defending: string;
   physical: string;
   sprintSpeed: string;
@@ -46,6 +45,21 @@ interface Player {
   longPass: string,
   shortPass:string,
   curve: string,
+  agility: string,
+  balance: string,
+  reactions: string,
+  composure: string,
+  ballControl: string,
+  dribbling: string,
+  interceptions: string,
+  headingAcc: string,
+  defAware : string,
+  standTackle: string,
+  slideTackle : string,
+  jumping: string,
+  stamina: string,
+  strength: string,
+  aggression: string
 }
 
 const PlayerStatsForm: FC = () => {
@@ -54,7 +68,6 @@ const PlayerStatsForm: FC = () => {
     pace: '',
     shooting: '',
     passing: '',
-    dribbling: '',
     defending: '',
     physical: '',
     sprintSpeed: '',
@@ -71,6 +84,22 @@ const PlayerStatsForm: FC = () => {
     longPass: '',
     shortPass:'',
     curve: '',
+    agility: '',
+    balance: '',
+    reactions: '',
+    composure: '',
+    ballControl: '',
+    dribbling: '',
+    interceptions: '',
+    headingAcc: '',
+    defAware : '',
+    standTackle: '',
+    slideTackle : '',
+    jumping: '',
+    stamina: '',
+    strength: '',
+    aggression: ''
+
   });
 
   const navigate = useNavigate();
@@ -141,7 +170,6 @@ const PlayerStatsForm: FC = () => {
 
   const {
     text: acceleration,
-    
     textChangeHandler: accelerationChangeHandler,
     inputBlurHandler: accelerationBlurHandler,
     clearHandler: accelerationClearHandler,
@@ -244,6 +272,119 @@ const PlayerStatsForm: FC = () => {
     inputBlurHandler: curveBlurHandler,
     clearHandler: curveClearHandler,
   } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: agility,
+    shouldDisplayError: agilityHasError,
+    textChangeHandler: agilityChangeHandler,
+    inputBlurHandler: agilityBlurHandler,
+    clearHandler: agilityClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: balance,
+    shouldDisplayError: balanceHasError,
+    textChangeHandler: balanceChangeHandler,
+    inputBlurHandler: balanceBlurHandler,
+    clearHandler: balanceClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: reactions,
+    shouldDisplayError: reactionsHasError,
+    textChangeHandler: reactionsChangeHandler,
+    inputBlurHandler: reactionsBlurHandler,
+    clearHandler: reactionsClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: composure,
+    shouldDisplayError: composureHasError,
+    textChangeHandler: composureChangeHandler,
+    inputBlurHandler: composureBlurHandler,
+    clearHandler: composureClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: ballControl,
+    shouldDisplayError: ballControlHasError,
+    textChangeHandler: ballControlChangeHandler,
+    inputBlurHandler: ballControlBlurHandler,
+    clearHandler: ballControlClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: interceptions,
+    shouldDisplayError: interceptionsHasError,
+    textChangeHandler: interceptionsChangeHandler,
+    inputBlurHandler: interceptionsBlurHandler,
+    clearHandler: interceptionsClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: headingAcc,
+    shouldDisplayError: headingAccHasError,
+    textChangeHandler: headingAccChangeHandler,
+    inputBlurHandler: headingAccBlurHandler,
+    clearHandler: headingAccClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: defAware,
+    shouldDisplayError: defAwareHasError,
+    textChangeHandler: defAwareChangeHandler,
+    inputBlurHandler: defAwareBlurHandler,
+    clearHandler: defAwareClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: standTackle,
+    shouldDisplayError: standTackleHasError,
+    textChangeHandler: standTackleChangeHandler,
+    inputBlurHandler: standTackleBlurHandler,
+    clearHandler: standTackleClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: slideTackle,
+    shouldDisplayError: slideTackleHasError,
+    textChangeHandler: slideTackleChangeHandler,
+    inputBlurHandler: slideTackleBlurHandler,
+    clearHandler: slideTackleClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: jumping,
+    shouldDisplayError: jumpingHasError,
+    textChangeHandler: jumpingChangeHandler,
+    inputBlurHandler: jumpingBlurHandler,
+    clearHandler: jumpingClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: stamina,
+    shouldDisplayError: staminaHasError,
+    textChangeHandler: staminaChangeHandler,
+    inputBlurHandler: staminaBlurHandler,
+    clearHandler: staminaClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: strength,
+    shouldDisplayError: strengthHasError,
+    textChangeHandler: strengthChangeHandler,
+    inputBlurHandler: strengthBlurHandler,
+    clearHandler: strengthClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
+  const {
+    text: aggression,
+    shouldDisplayError: aggressionHasError,
+    textChangeHandler: aggressionChangeHandler,
+    inputBlurHandler: aggressionBlurHandler,
+    clearHandler: aggressionClearHandler,
+  } = useInput(validateNumberRange(0, 100));
+
   
 
   const clearForm = () => {
@@ -267,6 +408,20 @@ const PlayerStatsForm: FC = () => {
     longPassClearHandler();
     shortPassClearHandler();
     curveClearHandler();
+    agilityClearHandler();
+    balanceClearHandler();
+    reactionsClearHandler();
+    composureClearHandler();
+    ballControlClearHandler();
+    interceptionsClearHandler();
+    headingAccClearHandler();
+    defAwareClearHandler();
+    standTackleClearHandler();
+    slideTackleClearHandler();
+    jumpingClearHandler();
+    staminaClearHandler();
+    strengthClearHandler();
+    aggressionClearHandler();
 
   };
 
@@ -291,7 +446,21 @@ const PlayerStatsForm: FC = () => {
     fkAcc,
     longPass,
     shortPass,
-    curve
+    curve,
+    agility,
+    balance,
+    reactions,
+    composure,
+    ballControl,
+    interceptions,
+    headingAcc,
+    defAware,
+    standTackle,
+    slideTackle,
+    jumping,
+    stamina,
+    strength,
+    aggression
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -318,7 +487,20 @@ const PlayerStatsForm: FC = () => {
       longPassHasError ||
       shortPassHasError ||
       curveHasError ||
-      crossingHasError
+      agilityHasError ||
+      balanceHasError ||
+      reactionsHasError ||
+      composureHasError ||
+      ballControlHasError ||
+      interceptions ||
+      headingAcc ||
+      defAware ||
+      standTackle ||
+      slideTackle ||
+      jumping ||
+      stamina ||
+      strength ||
+      aggression
     )
       return;
 
@@ -343,8 +525,22 @@ const PlayerStatsForm: FC = () => {
       fkAcc.trim() === '' ||
       longPass.trim() === '' ||
       shortPass.trim() === '' ||
-      curve.trim()     
-
+      curve.trim() === '' ||
+      agility.trim() === '' ||
+      balance.trim() === '' ||
+      reactions.trim() === '' ||
+      composure.trim() === '' ||
+      ballControl.trim() === '' ||
+      dribbling.trim() === '' ||
+      interceptions.trim() === '' ||
+      headingAcc.trim() === '' ||
+      defAware.trim() === '' ||
+      standTackle.trim() === '' ||
+      slideTackle.trim() === '' ||
+      jumping.trim() === '' ||
+      stamina.trim() === '' ||
+      strength.trim() === '' ||
+      aggression 
     )
 
     localStorage.setItem('player', JSON.stringify(newPlayer));
@@ -664,53 +860,7 @@ const PlayerStatsForm: FC = () => {
                   />
                 </Grid>
               </Grid>
-              <Typography className ="sub-form-main" variant="h5" gutterBottom>
-              Pace Details
-              </Typography>
-              <Grid container spacing={2}>
-                <Grid item xs={12} md={6} sm={6}>
-                  <TextField
-                    value={sprintSpeed}
-                    onChange={sprintSpeedChangeHandler}
-                    onBlur={sprintSpeedBlurHandler}
-                    // error={sprintSpeedHasError}
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="sprintSpeed"
-                    label="Sprint Speed"
-                    name="sprintSpeed"
-                    autoComplete="sprintSpeed"
-                    InputLabelProps={{
-                      style: { color: '#fff' },
-                    }}
-                    InputProps={{
-                      style: { color: '#fff' },
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} md={6} sm={6}>
-                  <TextField
-                    value={acceleration}
-                    onChange={accelerationChangeHandler}
-                    onBlur={accelerationBlurHandler}
-                    // error={accelerationHasError}
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="acceleration"
-                    label="acceleration"
-                    name="acceleration"
-                    autoComplete="acceleration"
-                    InputLabelProps={{
-                      style: { color: '#fff' },
-                    }}
-                    InputProps={{
-                      style: { color: '#fff' },
-                    }}
-                  />
-                </Grid>
-              </Grid>
+              
             <Typography className ="sub-form-main" variant="h5" gutterBottom>
               Passing
             </Typography>
@@ -827,6 +977,323 @@ const PlayerStatsForm: FC = () => {
                     label="Volleys"
                     name="volleys"
                     autoComplete="volleys"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+              </Grid>
+
+              <Typography className ="sub-form-main" variant="h5" gutterBottom>
+              Dribbling
+            </Typography>
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={agility}
+                    onChange={agilityChangeHandler}
+                    onBlur={agilityBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="agility"
+                    label="Agility"
+                    name="agility"
+                    autoComplete="agility"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={balance}
+                    onChange={balanceChangeHandler}
+                    onBlur={balanceBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="balance"
+                    label="Balance"
+                    name="balance"
+                    autoComplete="balance"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={reactions}
+                    onChange={reactionsChangeHandler}
+                    onBlur={reactionsBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="reactions"
+                    label="Reactions"
+                    name="reactions"
+                    autoComplete="reactions"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={composure}
+                    onChange={composureChangeHandler}
+                    onBlur={composureBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="composure"
+                    label="Composure"
+                    name="composure"
+                    autoComplete="composure"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={ballControl}
+                    onChange={ballControlChangeHandler}
+                    onBlur={ballControlBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="ballControl"
+                    label="Ball Control"
+                    name="ballControl"
+                    autoComplete="ballControl"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={dribbling}
+                    onChange={dribblingChangeHandler}
+                    onBlur={dribblingBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="dribbling"
+                    label="Dribbling"
+                    name="dribbling"
+                    autoComplete="dribbling"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+              </Grid>
+
+            <Typography className ="sub-form-main" variant="h5" gutterBottom>
+              Defending
+            </Typography>
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={interceptions}
+                    onChange={interceptionsChangeHandler}
+                    onBlur={interceptionsBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="interceptions"
+                    label="Interceptions"
+                    name="interceptions"
+                    autoComplete="interceptions"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={headingAcc}
+                    onChange={headingAccChangeHandler}
+                    onBlur={headingAccBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="headingAcc"
+                    label="Heading Acc."
+                    name="headingAcc"
+                    autoComplete="headingAcc"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={defAware}
+                    onChange={defAwareChangeHandler}
+                    onBlur={defAwareBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="defAware"
+                    label="Def. Aware"
+                    name="defAware"
+                    autoComplete="defAware"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={standTackle}
+                    onChange={standTackleChangeHandler}
+                    onBlur={standTackleBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="standTackle"
+                    label="Stand Tackle"
+                    name="standTackle"
+                    autoComplete="standTackle"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={slideTackle}
+                    onChange={slideTackleChangeHandler}
+                    onBlur={slideTackleBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="slideTackle"
+                    label="Slide Tackle"
+                    name="slideTackle"
+                    autoComplete="slideTackle"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+              </Grid>
+              <Typography className ="sub-form-main" variant="h5" gutterBottom>
+              Physical
+            </Typography>
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={jumping}
+                    onChange={jumpingChangeHandler}
+                    onBlur={jumpingBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="jumping"
+                    label="Jumping"
+                    name="jumping"
+                    autoComplete="jumping"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={stamina}
+                    onChange={staminaChangeHandler}
+                    onBlur={staminaBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="stamina"
+                    label="Stamina"
+                    name="stamina"
+                    autoComplete="stamina"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={strength}
+                    onChange={strengthChangeHandler}
+                    onBlur={strengthBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="strength"
+                    label="Strength"
+                    name="strength"
+                    autoComplete="strength"
+                    InputLabelProps={{
+                      style: { color: '#fff' },
+                    }}
+                    InputProps={{
+                      style: { color: '#fff' },
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12} md={6} sm={6}>
+                  <TextField
+                    value={aggression}
+                    onChange={aggressionChangeHandler}
+                    onBlur={aggressionBlurHandler}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="aggression"
+                    label="Aggression"
+                    name="aggression"
+                    autoComplete="aggression"
                     InputLabelProps={{
                       style: { color: '#fff' },
                     }}
