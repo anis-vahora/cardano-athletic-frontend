@@ -59,7 +59,7 @@ const Navbar = ({ mClass, nClass, cClass, slogo, hbtnClass }: NavbarProps) => {
                                 <li className="dropdown submenu nav-item">
                                     <Link to="./" title="Pages" className="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</Link>
                                     <ul role="menu" className=" dropdown-menu">
-                                        <li className="nav-item"><Link title="About" className="nav-link" to='/player-profile'>Player Profile</Link></li>
+                                        <li className="nav-item"><Link title="Player Profile" className="nav-link" to='/player-profile'>Player Profile</Link></li>
                                     </ul>
                                 </li>
                                 {/* <li className="dropdown submenu nav-item"><Link title="Pages" className="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" to="#">Portfolio</Link>
@@ -76,8 +76,16 @@ const Navbar = ({ mClass, nClass, cClass, slogo, hbtnClass }: NavbarProps) => {
                                     </ul>
                                 </li>
                                 <li className="nav-item"><Link  className="nav-link" to="/contact">Contact</Link></li>
+
+                                <li className="dropdown submenu nav-item" style={{paddingTop:"30px"}}>
+                                    <Link to="./" title="Player Details" className="avatar"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PD</Link>
+                                    <ul role="menu" className=" dropdown-menu">
+                                        <li className="nav-item"><Link title="Player Skills form" className="nav-link" to='/player-skills-form'>Skills Form</Link></li>
+                                        <li className="nav-item"><a className="nav-link" style={{cursor:"pointer"}} onClick={logoutHandler}>Logout</a></li>
+                                    </ul>
+                                </li>
                             </ul>
-                            <a className={`btn_get btn_hover ${hbtnClass}`} onClick={logoutHandler}>Logout</a>
+                            {/* <a className={`btn_get btn_hover ${hbtnClass}`} onClick={logoutHandler}>Logout</a> */}
                         </div>
                     </div>
                 </nav>

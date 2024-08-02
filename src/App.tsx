@@ -12,6 +12,7 @@ import SignUp from "./pages/Registration/Registration";
 import Home from "./pages/Home/Home";
 import NotFound from "./pages/404/404";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import PlayerStatsForm from "./pages/PlayerStatsForm/PlayerStatsForm";
 
 function App() {
   return <React.Fragment> <Router>
@@ -23,6 +24,7 @@ function App() {
       <Route path='/contact' element={<PrivateRoute page={<NotFound />} isNavbar={false} />} />
       <Route path='/signup' element={<SignUp />} />
       <Route path='/signin' element={<SignIn />} />
+      <Route path='/player-skills-form' element={<PlayerStatsForm />} />
       <Route path='*' element={<Navigate to='/' />} />
     </Routes>
   </Router>

@@ -326,6 +326,9 @@ const SignUp: React.FC = () => {
                       label='Date of Birth'
                       name='dateOfBirth'
                       type='date'
+                      InputLabelProps={{
+                        shrink: true,
+                      }}   
 
                     />
                   </Grid>
